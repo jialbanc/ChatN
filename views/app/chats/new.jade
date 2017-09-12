@@ -1,0 +1,11 @@
+extends ../../layout.jade
+block contenido
+    div(class="col-md-8 remove-float center-block text-center big-to-space")
+        h1 Crear chat
+        form(action="/app/chats", method="POST")
+            div(class="form-group")
+                label(for="title") Título
+                input(id="title", type="text", name="title", placeholder="Título del chat...",class="form-control")
+            div(class="row top-space")
+                div(class="col-xs-12 col-sm-6")
+                        input(type="submit" value="Guardar",class="btn btn-info")

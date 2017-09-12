@@ -1,0 +1,21 @@
+extends ./layout.jade
+block contenido
+    div(class="col-md-8 remove-float center-block text-center big-to-space")
+        form(action="/users",method="POST")
+            div(class="form-group")
+                label(for="email") Email
+                input(id="email", type="text", name="email", placeholder="Email",class="form-control")
+            div(class="form-group")
+                label(for="password") Contraseña
+                input(id="password", type="password", name="password", placeholder="Contraseña",class="form-control")
+            div(class="form-group")
+                label(for="password_confirmation") Confirma tu contraseña
+                input(id="password_confirmation", type="password", name="password_confirmation", placeholder="Confirma tu contraseña",class="form-control")
+            div(class="form-group")
+                label(for="username") Username
+                input(id="username", type="text", name="username", placeholder="Nombre de usuario",class="form-control")
+            div(class="row top-space")
+                div(class="col-xs-12 col-sm-6")
+                    input(type="submit" value="Registrar",class="btn btn-info")
+                div(class="col-xs-12 col-sm-6 text-right")
+                    a(href="/login") Ya tengo una cuenta

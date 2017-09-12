@@ -1,0 +1,15 @@
+extends ../layout.jade
+block contenido
+    div(id="imagenes")
+        for chat in chats
+            .white.border.tr.large-padding
+                .row
+                    .col-md-10
+                        h2=chat.title
+                        small=chat.created_at
+                        br
+                    .col-md-2
+                        if(chat.members.length <= 0)
+                            a(href="/app/chats/#{chat._id}/join",class="right-space") Entrar
+                        else
+                            a(href="/app/chats/#{chat._id}/leave",class="right-space") Salir

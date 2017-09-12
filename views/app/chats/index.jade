@@ -1,0 +1,17 @@
+extends ../../layout.jade
+block contenido
+    div(class="container")
+        h1 Mis Chats
+        for chat in chats
+            .white.border.tr.large-padding
+                .row
+                    .col-md-10
+                        a(href="/app/chats/#{chat._id}")
+                            h2=chat.title
+                        small=chat.created_at
+                        br
+                    .col-md-2
+                        a(href="/app/chats/#{chat._id}/edit",class="right-space") Editar
+                        form(action="/app/chats/#{chat._id}?_method=DELETE", method="POST", class="link")
+                            input(type="submit", value="Eliminar")
+

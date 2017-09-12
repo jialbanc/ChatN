@@ -1,0 +1,27 @@
+extends ../../layout.jade
+block contenido
+    div(class=" col-md-3")
+        h1= chat.title
+        a(href="/app/chats/#{chat._id}/leave", class="pull-right") Abandonar Chat
+        for user in chat.members
+            .white.border.tr.large-padding
+                .row
+                    .col-md-10
+                        h2=user.username
+                        small=user.email
+                        br
+    div(class="col-md-9")
+        div(id="messages", class="chat-container col-md-12")
+            for message in messages
+                .alert.alert-info
+                    small=message.author.username
+                    p=message.body
+        form(action="/app/messages",method="POST")
+            input(type="hidden", name="chat_id", id="chat_id", value="#{chat._id}")
+            textarea(id="body_message", name="body_message", placeholder="Escribe aquí tu mensaje",class="col-md-12")
+            input(type="submit" value="Enviar",class="btn btn-info")
+    script(id="message-template", type="text/x-handlebars-template")
+        div(class="alert alert-info")
+            small {{username}}
+            p {{body}}
+    script(src="/public/js/client.js")
